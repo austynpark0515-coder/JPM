@@ -7,12 +7,10 @@ Meant to run on a frequent interval during market hours (see
 config.MAIN_TABLE_REFRESH_MINUTES) — ~40 funds x 1 call/fund is well
 within the 60 calls/min free-tier limit.
 
-Columns NOT available on this plan, left blank rather than faked:
-- Volume, YTD Return — both require /stock/candle (paid).
-- NAV / NAV Change — Finnhub only exposes market price on /quote, not a
-  fund's official NAV (that lives in the paid /etf/profile).
-Day Change ($ and %) is included instead — /quote returns it for free
-(fields d/dp) and it's a reasonable free substitute snapshot metric.
+NAV / NAV Change aren't pulled here — Finnhub only exposes market price
+on /quote, not a fund's official NAV; see src/refresh_nav.py, which
+sources those from JPM's own site instead. Day Change ($ and %) is
+included here since /quote returns it for free (fields d/dp).
 """
 from typing import Optional
 

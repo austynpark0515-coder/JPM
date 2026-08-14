@@ -5,10 +5,10 @@ asset class. Holdings drill-down lives on the Fund Detail page (see
 pages/).
 
 Price/OHLC comes from Finnhub's free /quote endpoint (verified live —
-/stock/candle and all /etf/* endpoints are paid on this plan, so Volume
-and YTD Return are still blank). NAV / NAV Change come from JPM's own
-historical-NAV export (src/jpm_data_client.py, src/refresh_nav.py) —
-Finnhub has no NAV field at all on any plan tier for ETFs.
+/stock/candle and all /etf/* endpoints are paid on this plan). NAV / NAV
+Change come from JPM's own historical-NAV export
+(src/jpm_data_client.py, src/refresh_nav.py) — Finnhub has no NAV field
+at all on any plan tier for ETFs.
 
 Price and NAV are refreshed separately and on purpose: price is
 intraday and worth refreshing often, NAV is an end-of-day figure that's
@@ -117,8 +117,3 @@ for asset_class in ASSET_CLASS_ORDER:
             picked_ticker = table.iloc[rows[0]]["Ticker"]
             st.session_state["selected_ticker"] = picked_ticker
             st.page_link("pages/1_Fund_Detail.py", label=f"Open {picked_ticker} holdings detail →")
-
-st.caption(
-    "Volume and YTD Return are blank — both need Finnhub's paid /stock/candle "
-    "endpoint, which this project's free-tier key can't reach."
-)

@@ -11,13 +11,8 @@ CACHE_DB_PATH = DATA_DIR / "cache.db"
 FINNHUB_RATE_LIMIT_PER_MIN = 60
 FINNHUB_BASE_URL = "https://finnhub.io/api/v1"
 
-# Main table (price/NAV/volume) refresh cadence during market hours.
+# Main table (price/NAV) refresh cadence during market hours.
 MAIN_TABLE_REFRESH_MINUTES = 15
-
-# Holdings + multi-horizon constituent returns are refreshed by the nightly
-# batch job only (scripts/refresh_holdings.py), never on-demand — a full
-# lineup pass can take 1-2 hours at the free-tier rate limit.
-HOLDINGS_STALE_AFTER_HOURS = 30
 
 
 def get_finnhub_api_key() -> str:
