@@ -139,8 +139,15 @@ if summary and summary["sector_allocation"]:
     import plotly.express as px
 
     pie = px.pie(names=list(sector_alloc.keys()), values=list(sector_alloc.values()), hole=0.4)
-    pie.update_layout(margin=dict(t=10, b=10, l=10, r=10))
-    st.plotly_chart(pie, use_container_width=True)
+    pie.update_traces(domain=dict(x=[0, 0.55]))
+    pie.update_layout(
+        height=380,
+        margin=dict(t=10, b=10, l=10, r=10),
+        legend=dict(x=0.58, y=0.5, xanchor="left", yanchor="middle"),
+    )
+    pie_col, _ = st.columns([2, 1])
+    with pie_col:
+        st.plotly_chart(pie, use_container_width=True)
     if sum(sector_alloc.values()) < 99:
         st.caption(
             f"Sectors sum to {sum(sector_alloc.values()):.1f}% of net assets — the "
