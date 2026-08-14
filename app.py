@@ -10,10 +10,10 @@ Change come from JPM's own historical-NAV export
 (src/jpm_data_client.py, src/refresh_nav.py) — Finnhub has no NAV field
 at all on any plan tier for ETFs.
 
-Price and NAV are refreshed separately and on purpose: price is
-intraday and worth refreshing often, NAV is an end-of-day figure that's
-only ever going to change once per trading day, so re-pulling it on
-every price click would be pure waste.
+Price and NAV are pulled from two different sources on two different
+cadences under the hood (NAV is end-of-day and rarely worth re-pulling
+more than once a day), but share a single "Refresh all data" button —
+simpler for a viewer than reasoning about two buttons.
 """
 import pandas as pd
 import streamlit as st
@@ -35,18 +35,14 @@ st.caption(
 reference = load_fund_reference()
 quotes = db.get_quotes_df()
 
-col_refresh, col_nav_refresh, col_freshness = st.columns([1, 1, 3])
+col_refresh, col_freshness = st.columns([1, 3])
 with col_refresh:
-    if st.button("Refresh prices now", help="Pulls a current price snapshot for the full lineup (~1 min)."):
-        with st.spinner("Refreshing lineup from Finnhub..."):
-            n = refresh_main_table()
-        st.success(f"Refreshed {n} funds.")
-        quotes = db.get_quotes_df()
-with col_nav_refresh:
-    if st.button("Refresh NAV", help="Pulls latest NAV + change from JPM's site for the full lineup (~1-2 min). NAV is end-of-day, so this rarely needs re-running more than once a day."):
+    if st.button("Refresh all data", help="Pulls current prices from Finnhub and NAV from JPM's site for the full lineup (~2-3 min)."):
+        with st.spinner("Refreshing prices from Finnhub..."):
+            n_price = refresh_main_table()
         with st.spinner("Refreshing NAV from JPM..."):
-            n = refresh_nav_snapshot()
-        st.success(f"Refreshed NAV for {n} funds.")
+            n_nav = refresh_nav_snapshot()
+        st.success(f"Refreshed prices for {n_price} funds and NAV for {n_nav} funds.")
         quotes = db.get_quotes_df()
 with col_freshness:
     if not quotes.empty:
@@ -75,7 +71,7 @@ if search:
     ]
 
 if quotes.empty:
-    st.info("No cached prices yet — click **Refresh prices now** to pull the current lineup.")
+    st.info("No cached prices yet — click **Refresh all data** to pull the current lineup.")
 
 display_columns = {
     "ticker": "Ticker",
@@ -109,7 +105,7 @@ for asset_class in ASSET_CLASS_ORDER:
             selection_mode="single-row",
             column_config={
                 "Fact Sheet": st.column_config.LinkColumn(display_text="Open PDF"),
-                "NAV": st.column_config.NumberColumn(help="Sourced from JPM's own site (end-of-day) — click Refresh NAV to populate."),
+                "NAV": st.column_config.NumberColumn(help="Sourced from JPM's own site (end-of-day) — click Refresh all data to populate."),
             },
         )
         rows = event.selection.rows if event and event.selection else []
@@ -117,3 +113,18 @@ for asset_class in ASSET_CLASS_ORDER:
             picked_ticker = table.iloc[rows[0]]["Ticker"]
             st.session_state["selected_ticker"] = picked_ticker
             st.page_link("pages/1_Fund_Detail.py", label=f"Open {picked_ticker} holdings detail →")
+
+st.markdown(
+    """
+    <div style="margin-top:3rem; padding:1.75rem 1rem 1.25rem; border-top:1px solid #E0E4E8; text-align:center;">
+        <div style="color:#00263E; font-weight:700; font-size:1rem; letter-spacing:0.04em;">
+            J.P. MORGAN ASSET MANAGEMENT
+        </div>
+        <div style="color:#8A8F98; font-size:0.75rem; margin-top:0.4rem; max-width:560px; margin-left:auto; margin-right:auto;">
+            Self-directed analytical project built on public market data. Not affiliated with,
+            endorsed by, or sourced from J.P. Morgan Asset Management's internal systems.
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
