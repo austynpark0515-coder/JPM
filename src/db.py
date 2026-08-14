@@ -1,7 +1,8 @@
-"""SQLite cache layer. Main table is refreshed on a frequent interval;
-holdings/fund_summary are written only by the nightly batch job
-(scripts/refresh_holdings.py). Every row carries its own last_updated
-timestamp so the UI can show live-vs-cached staleness per data point.
+"""SQLite cache layer. Main table (quotes) is refreshed on a frequent
+interval from Finnhub; holdings/nav_history/fund_summary are refreshed
+on-demand per fund from JPM's own site (src/jpm_data_client.py) when a
+user opens that fund's detail page. Every row carries its own
+last_updated timestamp so the UI can show live-vs-cached staleness.
 """
 import json
 import sqlite3
@@ -37,21 +38,30 @@ CREATE TABLE IF NOT EXISTS fund_summary (
     last_updated TEXT NOT NULL
 );
 
+-- No PRIMARY KEY on (fund_ticker, symbol): bond funds legitimately have
+-- multiple holdings sharing the same (often blank) ticker across
+-- different maturities/issues. replace_holdings() does a full
+-- delete-then-insert per fund, so row uniqueness isn't needed here.
 CREATE TABLE IF NOT EXISTS holdings (
     fund_ticker TEXT NOT NULL,
-    symbol TEXT NOT NULL,
+    symbol TEXT,
     description TEXT,
+    sector TEXT,
     sub_industry TEXT,
     pct_net_assets REAL,
     shares_held REAL,
     market_value REAL,
-    day_change_pct REAL,
-    five_day_change_pct REAL,
-    one_month_change_pct REAL,
-    ytd_change_pct REAL,
-    one_year_change_pct REAL,
+    last_updated TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_holdings_fund_ticker ON holdings(fund_ticker);
+
+CREATE TABLE IF NOT EXISTS nav_history (
+    fund_ticker TEXT NOT NULL,
+    date TEXT NOT NULL,
+    nav REAL,
+    market_price REAL,
     last_updated TEXT NOT NULL,
-    PRIMARY KEY (fund_ticker, symbol)
+    PRIMARY KEY (fund_ticker, date)
 );
 """
 
@@ -128,30 +138,25 @@ def get_fund_summary(fund_ticker: str) -> Optional[dict]:
 
 
 def replace_holdings(fund_ticker: str, holdings: list[dict]):
-    """Wholesale-replaces one fund's holdings snapshot (nightly batch semantics)."""
+    """Wholesale-replaces one fund's holdings snapshot."""
     now = _now_iso()
     with get_conn() as conn:
         conn.execute("DELETE FROM holdings WHERE fund_ticker = ?", (fund_ticker,))
         conn.executemany(
             """INSERT INTO holdings
-               (fund_ticker, symbol, description, sub_industry, pct_net_assets, shares_held,
-                market_value, day_change_pct, five_day_change_pct, one_month_change_pct,
-                ytd_change_pct, one_year_change_pct, last_updated)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+               (fund_ticker, symbol, description, sector, sub_industry, pct_net_assets,
+                shares_held, market_value, last_updated)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             [
                 (
                     fund_ticker,
                     h.get("symbol"),
                     h.get("description"),
+                    h.get("sector"),
                     h.get("sub_industry"),
                     h.get("pct_net_assets"),
                     h.get("shares_held"),
                     h.get("market_value"),
-                    h.get("day_change_pct"),
-                    h.get("five_day_change_pct"),
-                    h.get("one_month_change_pct"),
-                    h.get("ytd_change_pct"),
-                    h.get("one_year_change_pct"),
                     now,
                 )
                 for h in holdings
@@ -166,3 +171,27 @@ def get_holdings_df(fund_ticker: str) -> pd.DataFrame:
             conn,
             params=(fund_ticker,),
         )
+
+
+def replace_nav_history(fund_ticker: str, rows: list[dict]):
+    """Wholesale-replaces one fund's cached NAV/market-price history."""
+    now = _now_iso()
+    with get_conn() as conn:
+        conn.execute("DELETE FROM nav_history WHERE fund_ticker = ?", (fund_ticker,))
+        conn.executemany(
+            """INSERT INTO nav_history (fund_ticker, date, nav, market_price, last_updated)
+               VALUES (?, ?, ?, ?, ?)""",
+            [(fund_ticker, r["date"], r.get("nav"), r.get("market_price"), now) for r in rows],
+        )
+
+
+def get_nav_history_df(fund_ticker: str) -> pd.DataFrame:
+    with get_conn() as conn:
+        df = pd.read_sql_query(
+            "SELECT * FROM nav_history WHERE fund_ticker = ? ORDER BY date ASC",
+            conn,
+            params=(fund_ticker,),
+        )
+    if not df.empty:
+        df["date"] = pd.to_datetime(df["date"])
+    return df
