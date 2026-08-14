@@ -2,12 +2,18 @@
 
 Business/product lens on JPM AM's ETF lineup: price snapshot grouped by
 asset class. Holdings drill-down lives on the Fund Detail page (see
-pages/) — deferred to v2, see that page's docstring.
+pages/).
 
-Only /quote is free on this project's Finnhub plan (verified live), so
-this table shows Close/Open/High/Low/Prev Close/Day Change $ and %.
-Volume and YTD Return need /stock/candle, which is paid; NAV needs the
-paid /etf/profile. Both are left blank rather than faked.
+Price/OHLC comes from Finnhub's free /quote endpoint (verified live —
+/stock/candle and all /etf/* endpoints are paid on this plan, so Volume
+and YTD Return are still blank). NAV / NAV Change come from JPM's own
+historical-NAV export (src/jpm_data_client.py, src/refresh_nav.py) —
+Finnhub has no NAV field at all on any plan tier for ETFs.
+
+Price and NAV are refreshed separately and on purpose: price is
+intraday and worth refreshing often, NAV is an end-of-day figure that's
+only ever going to change once per trading day, so re-pulling it on
+every price click would be pure waste.
 """
 import pandas as pd
 import streamlit as st
@@ -15,6 +21,7 @@ import streamlit as st
 from src import db
 from src.fund_reference import ASSET_CLASS_ORDER, load_fund_reference
 from src.refresh_main import refresh_main_table
+from src.refresh_nav import refresh_nav_snapshot
 
 st.set_page_config(page_title="JPM ETF Tracking Dashboard", layout="wide")
 db.init_db()
@@ -28,17 +35,26 @@ st.caption(
 reference = load_fund_reference()
 quotes = db.get_quotes_df()
 
-col_refresh, col_freshness = st.columns([1, 4])
+col_refresh, col_nav_refresh, col_freshness = st.columns([1, 1, 3])
 with col_refresh:
     if st.button("Refresh prices now", help="Pulls a current price snapshot for the full lineup (~1 min)."):
         with st.spinner("Refreshing lineup from Finnhub..."):
             n = refresh_main_table()
         st.success(f"Refreshed {n} funds.")
         quotes = db.get_quotes_df()
+with col_nav_refresh:
+    if st.button("Refresh NAV", help="Pulls latest NAV + change from JPM's site for the full lineup (~1-2 min). NAV is end-of-day, so this rarely needs re-running more than once a day."):
+        with st.spinner("Refreshing NAV from JPM..."):
+            n = refresh_nav_snapshot()
+        st.success(f"Refreshed NAV for {n} funds.")
+        quotes = db.get_quotes_df()
 with col_freshness:
     if not quotes.empty:
-        oldest = quotes["last_updated"].min()
-        st.caption(f"Oldest price in cache: {oldest}")
+        oldest_price = quotes["last_updated"].min()
+        st.caption(f"Oldest price in cache: {oldest_price}")
+        nav_timestamps = quotes["nav_last_updated"].dropna()
+        if not nav_timestamps.empty:
+            st.caption(f"Oldest NAV in cache: {nav_timestamps.min()}")
 
 merged = reference.merge(quotes, left_on="ticker", right_on="ticker", how="left")
 
@@ -68,6 +84,7 @@ display_columns = {
     "day_change": "Day Chg $",
     "day_change_pct": "Day Chg %",
     "nav": "NAV",
+    "nav_change": "NAV Chg $",
     "nav_change_pct": "NAV Chg %",
     "open": "Open",
     "high": "High",
@@ -92,7 +109,7 @@ for asset_class in ASSET_CLASS_ORDER:
             selection_mode="single-row",
             column_config={
                 "Fact Sheet": st.column_config.LinkColumn(display_text="Open PDF"),
-                "NAV": st.column_config.NumberColumn(help="Not available on Finnhub's free tier — market price only."),
+                "NAV": st.column_config.NumberColumn(help="Sourced from JPM's own site (end-of-day) — click Refresh NAV to populate."),
             },
         )
         rows = event.selection.rows if event and event.selection else []
@@ -102,6 +119,6 @@ for asset_class in ASSET_CLASS_ORDER:
             st.page_link("pages/1_Fund_Detail.py", label=f"Open {picked_ticker} holdings detail →")
 
 st.caption(
-    "NAV / NAV Change columns are blank pending a NAV-capable data source — "
-    "Finnhub's free tier exposes market price, not official fund NAV."
+    "Volume and YTD Return are blank — both need Finnhub's paid /stock/candle "
+    "endpoint, which this project's free-tier key can't reach."
 )

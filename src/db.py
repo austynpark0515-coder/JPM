@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS quotes (
     nav REAL,
     nav_change REAL,
     nav_change_pct REAL,
+    nav_last_updated TEXT,
     last_updated TEXT NOT NULL
 );
 
