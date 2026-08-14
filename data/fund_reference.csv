@@ -10,7 +10,7 @@ JMEE,JPMorgan Small & Mid Cap Enhanced Equity ETF,U.S. Equity,0.0024,https://am.
 JMOM,JPMorgan U.S. Momentum Factor ETF,U.S. Equity,0.0012,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JMOM.PDF,46641Q779
 JPEF,JPMorgan Equity Focus ETF,U.S. Equity,0.0044,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPEF.PDF,46654Q781
 BBMC,JPMorgan BetaBuilders U.S. Mid Cap Equity ETF,U.S. Equity,0.0007,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBMC.PDF,46641Q340
-LGDS,JPMorgan Fundamental Data Science Large Growth ETF,U.S. Equity,,,
+LGDS,JPMorgan Fundamental Data Science Large Growth ETF,U.S. Equity,0.0030,,46654Q450
 JVAL,JPMorgan U.S. Value Factor ETF,U.S. Equity,0.0012,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JVAL.PDF,46641Q753
 JUSA,JPMorgan U.S. Research Enhanced Large Cap ETF,U.S. Equity,0.0012,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JUSA.PDF,46654Q617
 BBSC,JPMorgan BetaBuilders U.S. Small Cap Equity Fund,U.S. Equity,0.0009,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBSC.PDF,46641Q290
@@ -21,7 +21,7 @@ ROCQ,JPMorgan Nasdaq Equity Premium Yield ETF,U.S. Equity,0.0035,https://am.jpmo
 ROCY,JPMorgan Equity Premium Yield ETF,U.S. Equity,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-ROCY.PDF,46654Q518
 JOYT,JPMorgan Equity and Options Total Return ETF,U.S. Equity,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JOYT.PDF,46654Q567
 LVDS,JPMorgan Fundamental Data Science Large Value ETF,U.S. Equity,0.003,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-LVDS.PDF,46654Q583
-JLVP,JPMorgan U.S. Large Cap Value Plus ETF,U.S. Equity,,,
+JLVP,JPMorgan U.S. Large Cap Value Plus ETF,U.S. Equity,0.0105,,46654Q443
 JPSV,JPMorgan Active Small Cap Value ETF,U.S. Equity,0.0055,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPSV.PDF,46654Q708
 LCDS,JPMorgan Fundamental Data Science Large Core ETF,U.S. Equity,0.003,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-LCDS.PDF,46654Q682
 JDIV,JPMorgan Dividend Leaders ETF,U.S. Equity,0.0047,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JDIV.pdf,46654Q658
