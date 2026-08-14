@@ -5,7 +5,7 @@ not intraday, so a short trailing window is enough to get the latest
 published value and compute day-over-day change.
 """
 from datetime import date, datetime, timedelta, timezone
-from typing import Optional
+from typing import Optional, Tuple
 
 from src import db
 from src.fund_reference import load_fund_reference
@@ -14,12 +14,14 @@ from src.jpm_data_client import fetch_historical_nav
 LOOKBACK_DAYS = 10  # comfortably covers weekends/holidays to get 2 trading days
 
 
-def refresh_nav_snapshot() -> int:
-    """Returns the count of funds successfully updated."""
+def refresh_nav_snapshot() -> Tuple[int, Optional[str]]:
+    """Returns (count of funds successfully updated, a sample error message
+    if every call failed)."""
     ref = load_fund_reference()
     today = date.today()
     start = today - timedelta(days=LOOKBACK_DAYS)
     updated = 0
+    last_error: Optional[str] = None
 
     for _, row in ref.iterrows():
         cusip = row.get("cusip")
@@ -27,9 +29,11 @@ def refresh_nav_snapshot() -> int:
             continue
         try:
             nav_df = fetch_historical_nav(cusip, start, today)
-        except Exception:
+        except Exception as exc:
+            last_error = f"{row['ticker']}: {exc}"
             continue
         if nav_df.empty:
+            last_error = f"{row['ticker']}: no NAV rows returned for {start}..{today}"
             continue
 
         nav_df = nav_df.sort_values("Date")
@@ -54,10 +58,12 @@ def refresh_nav_snapshot() -> int:
         )
         updated += 1
 
-    return updated
+    return updated, (last_error if updated == 0 else None)
 
 
 if __name__ == "__main__":
     db.init_db()
-    count = refresh_nav_snapshot()
+    count, error = refresh_nav_snapshot()
     print(f"Refreshed NAV for {count} funds.")
+    if error:
+        print(f"Sample error: {error}")

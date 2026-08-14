@@ -39,10 +39,14 @@ col_refresh, col_freshness = st.columns([1, 3])
 with col_refresh:
     if st.button("Refresh all data", help="Pulls current prices from Finnhub and NAV from JPM's site for the full lineup (~2-3 min)."):
         with st.spinner("Refreshing prices from Finnhub..."):
-            n_price = refresh_main_table()
+            n_price, price_error = refresh_main_table()
         with st.spinner("Refreshing NAV from JPM..."):
-            n_nav = refresh_nav_snapshot()
+            n_nav, nav_error = refresh_nav_snapshot()
         st.success(f"Refreshed prices for {n_price} funds and NAV for {n_nav} funds.")
+        if price_error:
+            st.error(f"Price refresh got 0 funds — sample error: {price_error}")
+        if nav_error:
+            st.error(f"NAV refresh got 0 funds — sample error: {nav_error}")
         quotes = db.get_quotes_df()
 with col_freshness:
     if not quotes.empty:

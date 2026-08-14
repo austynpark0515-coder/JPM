@@ -12,25 +12,30 @@ on /quote, not a fund's official NAV; see src/refresh_nav.py, which
 sources those from JPM's own site instead. Day Change ($ and %) is
 included here since /quote returns it for free (fields d/dp).
 """
-from typing import Optional
+from typing import Optional, Tuple
 
 from src import db
 from src.finnhub_client import FinnhubClient
 from src.fund_reference import load_fund_reference
 
 
-def refresh_main_table(client: Optional[FinnhubClient] = None) -> int:
-    """Returns the count of funds successfully updated."""
+def refresh_main_table(client: Optional[FinnhubClient] = None) -> Tuple[int, Optional[str]]:
+    """Returns (count of funds successfully updated, a sample error message
+    if every call failed — so a mass failure is diagnosable from the UI
+    instead of silently showing "0 funds refreshed")."""
     client = client or FinnhubClient()
     tickers = load_fund_reference()["ticker"].tolist()
     updated = 0
+    last_error: Optional[str] = None
     for ticker in tickers:
         try:
             q = client.quote(ticker)
-        except Exception:
+        except Exception as exc:
+            last_error = f"{ticker}: {exc}"
             continue
         close = q.get("c")
         if not close:
+            last_error = f"{ticker}: quote returned no price ({q})"
             continue
         db.upsert_quote(
             ticker,
@@ -46,10 +51,12 @@ def refresh_main_table(client: Optional[FinnhubClient] = None) -> int:
             nav_change_pct=None,
         )
         updated += 1
-    return updated
+    return updated, (last_error if updated == 0 else None)
 
 
 if __name__ == "__main__":
     db.init_db()
-    count = refresh_main_table()
+    count, error = refresh_main_table()
     print(f"Refreshed {count} funds.")
+    if error:
+        print(f"Sample error: {error}")
