@@ -1,79 +1,79 @@
 ticker,fund_name,asset_class,expense_ratio,fact_sheet_url
-JEPI,JPMorgan Equity Premium Income ETF,U.S. Equity,,
-JEPQ,JPMorgan Nasdaq Equity Premium Income ETF,U.S. Equity,,
-BBUS,JPMorgan BetaBuilders U.S. Equity ETF,U.S. Equity,,
-JGRO,JPMorgan Active Growth ETF,U.S. Equity,,
-JQUA,JPMorgan U.S. Quality Factor ETF,U.S. Equity,,
-JAVA,JPMorgan Active Value ETF,U.S. Equity,,
-JTEK,JPMorgan U.S. Tech Leaders ETF,U.S. Equity,,
-JMEE,JPMorgan Small & Mid Cap Enhanced Equity ETF,U.S. Equity,,
-JMOM,JPMorgan U.S. Momentum Factor ETF,U.S. Equity,,
-JPEF,JPMorgan Equity Focus ETF,U.S. Equity,,
-BBMC,JPMorgan BetaBuilders U.S. Mid Cap Equity ETF,U.S. Equity,,
+JEPI,JPMorgan Equity Premium Income ETF,U.S. Equity,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JEPI.PDF
+JEPQ,JPMorgan Nasdaq Equity Premium Income ETF,U.S. Equity,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JEPQ.PDF
+BBUS,JPMorgan BetaBuilders U.S. Equity ETF,U.S. Equity,0.0002,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBUS.PDF
+JGRO,JPMorgan Active Growth ETF,U.S. Equity,0.0044,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JGRO.PDF
+JQUA,JPMorgan U.S. Quality Factor ETF,U.S. Equity,0.0012,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JQUA.PDF
+JAVA,JPMorgan Active Value ETF,U.S. Equity,0.0044,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JAVA.PDF
+JTEK,JPMorgan U.S. Tech Leaders ETF,U.S. Equity,0.0065,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JTEK.PDF
+JMEE,JPMorgan Small & Mid Cap Enhanced Equity ETF,U.S. Equity,0.0024,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JMEE.PDF
+JMOM,JPMorgan U.S. Momentum Factor ETF,U.S. Equity,0.0012,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JMOM.PDF
+JPEF,JPMorgan Equity Focus ETF,U.S. Equity,0.0044,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPEF.PDF
+BBMC,JPMorgan BetaBuilders U.S. Mid Cap Equity ETF,U.S. Equity,0.0007,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBMC.PDF
 LGDS,JPMorgan Fundamental Data Science Large Growth ETF,U.S. Equity,,
-JVAL,JPMorgan U.S. Value Factor ETF,U.S. Equity,,
-JUSA,JPMorgan U.S. Research Enhanced Large Cap ETF,U.S. Equity,,
-BBSC,JPMorgan BetaBuilders U.S. Small Cap Equity Fund,U.S. Equity,,
-JPSE,JPMorgan Diversified Return U.S. Small Cap Equity ETF,U.S. Equity,,
-JPME,JPMorgan Diversified Return U.S. Mid Cap Equity ETF,U.S. Equity,,
-JPUS,JPMorgan Diversified Return U.S. Equity ETF,U.S. Equity,,
-ROCQ,JPMorgan Nasdaq Equity Premium Yield ETF,U.S. Equity,,
-ROCY,JPMorgan Equity Premium Yield ETF,U.S. Equity,,
-JOYT,JPMorgan Equity and Options Total Return ETF,U.S. Equity,,
-LVDS,JPMorgan Fundamental Data Science Large Value ETF,U.S. Equity,,
+JVAL,JPMorgan U.S. Value Factor ETF,U.S. Equity,0.0012,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JVAL.PDF
+JUSA,JPMorgan U.S. Research Enhanced Large Cap ETF,U.S. Equity,0.0012,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JUSA.PDF
+BBSC,JPMorgan BetaBuilders U.S. Small Cap Equity Fund,U.S. Equity,0.0009,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBSC.PDF
+JPSE,JPMorgan Diversified Return U.S. Small Cap Equity ETF,U.S. Equity,0.0029,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPSE.PDF
+JPME,JPMorgan Diversified Return U.S. Mid Cap Equity ETF,U.S. Equity,0.0024,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPME.PDF
+JPUS,JPMorgan Diversified Return U.S. Equity ETF,U.S. Equity,0.0018,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPUS.PDF
+ROCQ,JPMorgan Nasdaq Equity Premium Yield ETF,U.S. Equity,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-ROCQ.PDF
+ROCY,JPMorgan Equity Premium Yield ETF,U.S. Equity,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-ROCY.PDF
+JOYT,JPMorgan Equity and Options Total Return ETF,U.S. Equity,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JOYT.PDF
+LVDS,JPMorgan Fundamental Data Science Large Value ETF,U.S. Equity,0.0030,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-LVDS.PDF
 JLVP,JPMorgan U.S. Large Cap Value Plus ETF,U.S. Equity,,
-JPSV,JPMorgan Active Small Cap Value ETF,U.S. Equity,,
-LCDS,JPMorgan Fundamental Data Science Large Core ETF,U.S. Equity,,
-JDIV,JPMorgan Dividend Leaders ETF,U.S. Equity,,
-JDOC,JPMorgan Healthcare Leaders ETF,U.S. Equity,,
-SCDS,JPMorgan Fundamental Data Science Small Core ETF,U.S. Equity,,
-MCDS,JPMorgan Fundamental Data Science Mid Core ETF,U.S. Equity,,
-BBJP,JPMorgan BetaBuilders Japan ETF,International Equity,,
-JIRE,JPMorgan International Research Enhanced Equity ETF,International Equity,,
-BBCA,JPMorgan BetaBuilders Canada ETF,International Equity,,
-BBEU,JPMorgan BetaBuilders Europe ETF,International Equity,,
-JGLO,JPMorgan Global Select Equity ETF,International Equity,,
-BBAX,JPMorgan BetaBuilders Developed Asia Pacific ex-Japan ETF,International Equity,,
-BBIN,JPMorgan BetaBuilders International Equity ETF,International Equity,,
-JIVE,JPMorgan International Value ETF,International Equity,,
-JEMA,JPMorgan ActiveBuilders Emerging Markets Equity ETF,International Equity,,
-BBEM,JPMorgan BetaBuilders Emerging Markets Equity ETF,International Equity,,
-JIG,JPMorgan International Growth ETF,International Equity,,
-JPIN,JPMorgan Diversified Return International Equity ETF,International Equity,,
-JPEM,JPMorgan Diversified Return Emerging Markets Equity ETF,International Equity,,
-JADE,JPMorgan Active Developing Markets Equity ETF,International Equity,,
-JIDE,JPMorgan International Dynamic ETF,International Equity,,
-JCHI,JPMorgan Active China ETF,International Equity,,
-JPST,JPMorgan Ultra-Short Income ETF,Fixed Income Taxable,,
-JCPB,JPMorgan Core Plus Bond ETF,Fixed Income Taxable,,
-JBND,JPMorgan Active Bond ETF,Fixed Income Taxable,,
-JMTG,JPMorgan Mortgage-Backed Securities ETF,Fixed Income Taxable,,
-JPLD,JPMorgan Limited Duration Bond ETF,Fixed Income Taxable,,
-JPRF,JPMorgan Preferred and Income Securities ETF,Fixed Income Taxable,,
-JPHY,JPMorgan Active High Yield ETF,Fixed Income Taxable,,
-JPIB,JPMorgan International Bond Opportunities ETF,Fixed Income Taxable,,
-JSCP,JPMorgan Short Duration Core Plus ETF,Fixed Income Taxable,,
-JFLX,JPMorgan Flexible Debt ETF,Fixed Income Taxable,,
-BBAG,JPMorgan BetaBuilders U.S. Aggregate Bond ETF,Fixed Income Taxable,,
-JCPI,JPMorgan Inflation Managed Bond ETF,Fixed Income Taxable,,
-BBHY,JPMorgan BetaBuilders USD High Yield Corporate Bond ETF,Fixed Income Taxable,,
-BBSB,JPMorgan BetaBuilders U.S. Treasury Bond 1-3 Year ETF,Fixed Income Taxable,,
-BBIB,JPMorgan BetaBuilders U.S. Treasury Bond 3-10 Year ETF,Fixed Income Taxable,,
-BBCB,JPMorgan BetaBuilders USD Investment Grade Corporate Bond ETF,Fixed Income Taxable,,
-JFLI,JPMorgan Flexible Income ETF,Fixed Income Taxable,,
-BBLB,JPMorgan BetaBuilders U.S. Treasury Bond 20+ Year ETF,Fixed Income Taxable,,
-JPMB,JPMorgan USD Emerging Markets Sovereign Bond ETF,Fixed Income Taxable,,
-JPIE,JPMorgan Income ETF,Fixed Income Taxable,,
-JMMF,JPMorgan 100% U.S. Treasury Securities Money Market ETF,Fixed Income Taxable,,
-JMUB,JPMorgan Municipal ETF,Fixed Income Tax-Free,,
-JMST,JPMorgan Ultra-Short Municipal Income ETF,Fixed Income Tax-Free,,
-JCAL,JPMorgan California Tax Free Bond ETF,Fixed Income Tax-Free,,
-JTNY,JPMorgan New York Tax Free Bond ETF,Fixed Income Tax-Free,,
-JMSI,JPMorgan Sustainable Municipal Income ETF,Fixed Income Tax-Free,,
-JMHI,JPMorgan High Yield Municipal ETF,Fixed Income Tax-Free,,
-HELO,JPMorgan Hedged Equity Laddered Overlay ETF,Alternatives,,
-HEQQ,JPMorgan Nasdaq Hedged Equity Laddered Overlay ETF,Alternatives,,
-HOLA,JPMorgan International Hedged Equity Laddered Overlay ETF,Alternatives,,
-JPFP,JPMorgan Managed Futures Plus ETF,Alternatives,,
-JPRE,JPMorgan Realty Income ETF,Alternatives,,
-BBRE,JPMorgan BetaBuilders MSCI US REIT ETF,Alternatives,,
+JPSV,JPMorgan Active Small Cap Value ETF,U.S. Equity,0.0055,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPSV.PDF
+LCDS,JPMorgan Fundamental Data Science Large Core ETF,U.S. Equity,0.0030,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-LCDS.PDF
+JDIV,JPMorgan Dividend Leaders ETF,U.S. Equity,0.0047,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JDIV.pdf
+JDOC,JPMorgan Healthcare Leaders ETF,U.S. Equity,0.0065,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JDOC.PDF
+SCDS,JPMorgan Fundamental Data Science Small Core ETF,U.S. Equity,0.0040,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-SCDS.PDF
+MCDS,JPMorgan Fundamental Data Science Mid Core ETF,U.S. Equity,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-MCDS.PDF
+BBJP,JPMorgan BetaBuilders Japan ETF,International Equity,0.0019,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBJP.PDF
+JIRE,JPMorgan International Research Enhanced Equity ETF,International Equity,0.0024,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JIRE.PDF
+BBCA,JPMorgan BetaBuilders Canada ETF,International Equity,0.0019,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBCA.PDF
+BBEU,JPMorgan BetaBuilders Europe ETF,International Equity,0.0009,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBEU.PDF
+JGLO,JPMorgan Global Select Equity ETF,International Equity,0.0047,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JGLO.PDF
+BBAX,JPMorgan BetaBuilders Developed Asia Pacific ex-Japan ETF,International Equity,0.0019,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBAX.PDF
+BBIN,JPMorgan BetaBuilders International Equity ETF,International Equity,0.0007,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBIN.PDF
+JIVE,JPMorgan International Value ETF,International Equity,0.0055,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JIVE.PDF
+JEMA,JPMorgan ActiveBuilders Emerging Markets Equity ETF,International Equity,0.0033,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JEMA.PDF
+BBEM,JPMorgan BetaBuilders Emerging Markets Equity ETF,International Equity,0.0015,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBEM.PDF
+JIG,JPMorgan International Growth ETF,International Equity,0.0055,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JIG.PDF
+JPIN,JPMorgan Diversified Return International Equity ETF,International Equity,0.0037,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPIN.PDF
+JPEM,JPMorgan Diversified Return Emerging Markets Equity ETF,International Equity,0.0044,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPEM.PDF
+JADE,JPMorgan Active Developing Markets Equity ETF,International Equity,0.0065,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JADE.PDF
+JIDE,JPMorgan International Dynamic ETF,International Equity,0.0055,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/fs-jide.pdf
+JCHI,JPMorgan Active China ETF,International Equity,0.0015,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JCHI.PDF
+JPST,JPMorgan Ultra-Short Income ETF,Fixed Income Taxable,0.0018,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPST.PDF
+JCPB,JPMorgan Core Plus Bond ETF,Fixed Income Taxable,0.0038,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JCPB.PDF
+JBND,JPMorgan Active Bond ETF,Fixed Income Taxable,0.0025,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JBND.PDF
+JMTG,JPMorgan Mortgage-Backed Securities ETF,Fixed Income Taxable,0.0024,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JMTG.PDF
+JPLD,JPMorgan Limited Duration Bond ETF,Fixed Income Taxable,0.0024,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPLD.PDF
+JPRF,JPMorgan Preferred and Income Securities ETF,Fixed Income Taxable,0.0055,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/fs-jprf.pdf
+JPHY,JPMorgan Active High Yield ETF,Fixed Income Taxable,0.0045,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPHY.PDF
+JPIB,JPMorgan International Bond Opportunities ETF,Fixed Income Taxable,0.0050,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPIB.PDF
+JSCP,JPMorgan Short Duration Core Plus ETF,Fixed Income Taxable,0.0033,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JSCP.PDF
+JFLX,JPMorgan Flexible Debt ETF,Fixed Income Taxable,0.0045,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JFLX.PDF
+BBAG,JPMorgan BetaBuilders U.S. Aggregate Bond ETF,Fixed Income Taxable,0.0003,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBAG.PDF
+JCPI,JPMorgan Inflation Managed Bond ETF,Fixed Income Taxable,0.0025,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JCPI.PDF
+BBHY,JPMorgan BetaBuilders USD High Yield Corporate Bond ETF,Fixed Income Taxable,0.0007,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBHY.PDF
+BBSB,JPMorgan BetaBuilders U.S. Treasury Bond 1-3 Year ETF,Fixed Income Taxable,0.0004,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBSB.PDF
+BBIB,JPMorgan BetaBuilders U.S. Treasury Bond 3-10 Year ETF,Fixed Income Taxable,0.0004,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBIB.PDF
+BBCB,JPMorgan BetaBuilders USD Investment Grade Corporate Bond ETF,Fixed Income Taxable,0.0004,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBCB.PDF
+JFLI,JPMorgan Flexible Income ETF,Fixed Income Taxable,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JFLI.pdf
+BBLB,JPMorgan BetaBuilders U.S. Treasury Bond 20+ Year ETF,Fixed Income Taxable,0.0004,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBLB.PDF
+JPMB,JPMorgan USD Emerging Markets Sovereign Bond ETF,Fixed Income Taxable,0.0039,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPMB.PDF
+JPIE,JPMorgan Income ETF,Fixed Income Taxable,0.0039,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPIE.PDF
+JMMF,JPMorgan 100% U.S. Treasury Securities Money Market ETF,Fixed Income Taxable,0.0016,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/money-market/fs.jmmf-etf.pdf
+JMUB,JPMorgan Municipal ETF,Fixed Income Tax-Free,0.0018,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JMUB.PDF
+JMST,JPMorgan Ultra-Short Municipal Income ETF,Fixed Income Tax-Free,0.0018,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JMST.PDF
+JCAL,JPMorgan California Tax Free Bond ETF,Fixed Income Tax-Free,0.0034,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/fs-jcal.pdf
+JTNY,JPMorgan New York Tax Free Bond ETF,Fixed Income Tax-Free,0.0034,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JTNY.PDF
+JMSI,JPMorgan Sustainable Municipal Income ETF,Fixed Income Tax-Free,0.0018,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JMSI.PDF
+JMHI,JPMorgan High Yield Municipal ETF,Fixed Income Tax-Free,0.0035,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JMHI.PDF
+HELO,JPMorgan Hedged Equity Laddered Overlay ETF,Alternatives,0.0050,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-HELO.pdf
+HEQQ,JPMorgan Nasdaq Hedged Equity Laddered Overlay ETF,Alternatives,0.0050,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-HEQQ.PDF
+HOLA,JPMorgan International Hedged Equity Laddered Overlay ETF,Alternatives,0.0050,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-HOLA.PDF
+JPFP,JPMorgan Managed Futures Plus ETF,Alternatives,0.0059,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPFP.PDF
+JPRE,JPMorgan Realty Income ETF,Alternatives,0.0050,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-JPRE.pdf
+BBRE,JPMorgan BetaBuilders MSCI US REIT ETF,Alternatives,0.0011,https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/FS-BBRE.PDF
